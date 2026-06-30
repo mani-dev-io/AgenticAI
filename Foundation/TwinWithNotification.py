@@ -6,6 +6,7 @@ import requests
 from pypdf import PdfReader
 import gradio as gr
 from dataclasses import dataclass
+from rules import rules 
 
 load_dotenv(override=True)
 openai = OpenAI(base_url='http://localhost:11434/v1', api_key='ollama') 
@@ -133,6 +134,8 @@ If the user would like to get in touch, then ask for their email, and use your t
 
 IMPORTANT:
 If you don't know the answer, use your tool to record the question, and then tell the user that you don't know. Never make up an answer.
+
+{rules}
 """
 
 def chat(message, history):
